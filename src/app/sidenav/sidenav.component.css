@@ -1,0 +1,172 @@
+.sidenav {
+    background-color: #072f39;
+    border: 1px solid #00bfff;
+    float: right;
+    z-index: 5;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: scroll;
+    color: #00bfff;
+}
+
+.btn-primary{
+    background-color: transparent;
+    border: 1px solid #00bfff;
+    color: #00bfff;
+}
+.btn-primary:hover {
+    background-color: #00bfff;
+    color: #072f39;
+    box-shadow: 1px 1px 14px #fff;
+}
+
+hr {
+    border-top: 1px solid #00bfff;
+}
+.sidenav::-webkit-scrollbar {
+    width: 0.45em;
+    background-color: #9aa1a7;
+}
+ 
+.sidenav::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.sidenav::-webkit-scrollbar-thumb {
+  background-color: #00bfff;
+  outline: 1px solid #6c757d;
+}
+
+.select-container {
+    margin: 10px 0;
+}
+
+.toggle-icon .example-icon{
+    transition: .3s transform ease-in-out;
+    padding-top: 0px !important;
+    transform: rotate(180deg);
+}
+
+.toggle-icon.collapsed .example-icon {
+    transition: .3s transform ease-in-out;
+    transform: rotate(0deg);
+}
+
+/*chart picker styling*/
+.mat-toolbar-row, .mat-toolbar-single-row{
+    height: 36px;
+}
+.mat-toolbar-multiple-rows{
+    min-height: 36px;
+}
+.example-icon {
+    color:#00bfff;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.mat-tree {
+    background: transparent;
+}
+.mat-toolbar {
+    background: transparent;
+    border: 1px solid #00bfff;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #00bfff !important;
+    color: #fff;
+}
+button.btn.chart-btn {
+    border: 1px solid #00bfff;
+    margin: 10px 15px;
+    width: 150px;
+    color: #00bfff;
+}
+button.btn.chart-btn:hover,button.btn.chart-btn.active {
+    background-color: #00bfff;
+    color:#072f39;
+    box-shadow: 1px 1px 20px #fff;
+}
+button.btn.chart-btn:hover .example-icon, button.btn.chart-btn.active .example-icon{
+    color:#072f39;
+}
+button.btn.chart-btn p {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.padding-zero {
+    padding: 0;
+}
+.mat-toolbar{
+    color: #00bfff;
+}
+.blue-border {
+    border: 1px solid #00bfff;
+}
+.sidenav-btn {
+    position: absolute;
+    right: 0%;
+    top: 45%;
+    border: 1px solid #00bfff;
+    background: #072f39;
+    border-radius: 10px 0 0 10px;
+    z-index: 2;
+    box-shadow: 1px 1px 8px #00bfff;
+}
+.sidenav-btn.active {
+    right: 16.5%;
+    box-shadow: 1px 1px 8px #00bfff;
+}
+.sidenav-btn>.example-icon {
+    color: #00bfff;
+    font-size: 28px;
+}
+.sidenav-btn.active .example-icon {
+    transform: rotate(180deg);
+    margin-top: 5px;
+    height: auto;
+}
+.btn-primary:not(:disabled):not(.disabled).active {
+    background: #072f39;
+}
+.sidenav-btn:hover {
+    background: #072f39;
+}
+@media(max-width: 576px) {
+    button.btn.chart-btn {
+        width: 100%;
+    }
+}
+/*chart picker styling*/
+::ng-deep .mat-select-panel {
+    min-width: 120px !important;
+    transform: translate(23.5%, 15%) !important;
+}
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked{
+    background-color: #00bfff !important;
+    color: #fff;
+}
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+    color: #00bfff;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label,::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #00bfff;
+}
+::ng-deep .mat-form-field-hide-placeholder .mat-select-placeholder {
+    color: #00bfff;
+    -webkit-text-fill-color: #00bfff;
+}
+::ng-deep .mat-select-value {
+    color: #00bfff;
+}
+::ng-deep .mat-select-panel::-webkit-scrollbar {
+    width: 0.45em;
+    background-color: #9aa1a7;
+}
+::ng-deep .mat-select-panel::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::ng-deep .mat-select-panel::-webkit-scrollbar-thumb {
+  background-color: #00bfff;
+  outline: 1px solid #6c757d;
+}

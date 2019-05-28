@@ -1,0 +1,118 @@
+<button type="button" class="btn btn-primary btn-lg sidenav-btn animated" [ngClass]="openfilter ? 'active slideInRight fast' : ''" (click)="openSidebar()">
+    <mat-icon class="example-icon font-weight-bold" [ngClass]="openfilter ? '' : 'animated infinite heartBeat'" aria-hidden="false" aria-label="Config icon">arrow_back_ios</mat-icon>
+</button>
+<div *ngIf="openfilter" [@fadeInOut] class="col-11 col-md-2 sidenav animated slideInRight" [ngClass]="openfilter ? 'slideInRight fast' : 'slideOutRight slow'">
+  <p class="my-2">FILTER</p>
+  <hr class="mt-1">
+
+  <div class="accordion" id="accordionExample">
+    <div class="blue-border my-3" [ngClass]="openfilter ? 'animated bounceInDown slower' : ''">
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span>YEAR</span>
+          <span class="example-spacer"></span>
+          <a href="javascript:void(0)" class="toggle-icon" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <mat-icon class="example-icon mt-3" aria-hidden="false" aria-label="Arrow icon">keyboard_arrow_down</mat-icon>
+          </a>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+        <div class="col-md-12 padding-zero">
+          <div class="select-container">
+            <mat-form-field class="ml-2">
+              <mat-label>Select Years</mat-label>
+              <mat-select multiple>
+                <mat-option *ngFor="let Data of DataSet" (onSelectionChange)="yearSelected($event)" [value]="Data.Year">{{Data.Year}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blue-border my-3" [ngClass]="openfilter ? 'animated bounceInDown slow' : ''">
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span>PLATFORM</span>
+          <span class="example-spacer"></span>
+          <a href="javascript:void(0)" class="toggle-icon collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <mat-icon class="example-icon mt-3" aria-hidden="false" aria-label="Arrow icon">keyboard_arrow_down</mat-icon>
+          </a>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+        <div class="col-md-12 padding-zero">
+          <div class="select-container">
+            <mat-form-field class="ml-2">
+              <mat-label>Select Platforms</mat-label>
+              <mat-select multiple>
+                <div *ngFor="let Data of DataSet">
+                  <div *ngIf="selectedYears.indexOf(Data.Year) > -1">
+                      <mat-option *ngFor="let item of Data.Data" (onSelectionChange)="platformSelected($event)" [value]="item.Platform">{{item.Platform}}</mat-option>
+                  </div>
+                </div>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blue-border my-3" [ngClass]="openfilter ? 'animated bounceInDown' : ''">
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span>SKUS</span>
+          <span class="example-spacer"></span>
+          <a href="javascript:void(0)" class="toggle-icon collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <mat-icon class="example-icon mt-3" aria-hidden="false" aria-label="Arrow icon">keyboard_arrow_down</mat-icon>
+          </a>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+        <div class="col-md-12 padding-zero">
+          <div class="select-container">
+            <mat-form-field class="ml-2">
+              <mat-label>Select Skus</mat-label>
+              <mat-select multiple>
+                <div *ngFor="let Data of DataSet">
+                  <div *ngFor="let item of Data.Data">
+                    <div *ngIf="selectedPlatforms.indexOf(item.Platform) > -1">
+                        <mat-option *ngFor="let sku of item.SKU" (onSelectionChange)="skuSelected($event)" [value]="sku">{{sku}}</mat-option>
+                    </div>
+                  </div>
+                </div>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blue-border my-3" [ngClass]="openfilter ? 'animated bounceInDown fast' : ''">
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span>Chart</span>
+          <span class="example-spacer"></span>
+          <a href="javascript:void(0)" class="toggle-icon collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <mat-icon class="example-icon mt-3" aria-hidden="false" aria-label="Arrow icon">keyboard_arrow_down</mat-icon>
+          </a>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <div id="collapseFour" class="collapse" data-parent="#accordionExample">
+        <div class="col-md-12 padding-zero">
+          <div class="select-container">
+            <button *ngFor="let chart of chartData" class="btn chart-btn" [ngClass]="{'active': chart.isSelected }" (click)="bindChart(chart.name,chart.id)">
+              <mat-icon class="example-icon" aria-hidden="false" aria-label="Chart icon">{{ chart.mat_icon_name }}</mat-icon>
+              <p>{{ chart.name }}</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <button type="button" class="btn btn-primary float-right mb-3" (click)="ApplyFilter()">Apply</button>
+
+</div>
